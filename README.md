@@ -1,4 +1,4 @@
-# Automatic-Gain-Control-Analog-to-Digital-Converter
+# DSP-Signal-Conditioning-ADC-Encoder
 
 **Status: Under Active Development**
 
@@ -14,7 +14,7 @@ MEng, Communications & Signal Processing - Western University | [LinkedIn](https
 
 ## Overview
 
-This repository houses a modular, object-oriented digital signal processing (DSP) block implemented in MATLAB. It acts as a complete hardware-equivalent frontend pipeline, integrating a signal generator, high-pass filter (HPF), anti-aliasing filter (AAF), time-varying automatic gain control (AGC), noise gate, analog-to-digital converter (ADC), and ADC encoder. It explores two main areas:
+This repository houses a modular, object-oriented digital signal processing (DSP) block implemented in MATLAB. It acts as a DSP model of a frontend pipeline, integrating a signal generator, high-pass filter (HPF), anti-aliasing filter (AAF), time-varying automatic gain control (AGC), noise gate, analog-to-digital converter (ADC), and ADC encoder. It explores two main areas:
 
 **1. Digital Signal Processing (DSP) Paradigms:** Sinusoidal signal generation, multi-stage filtering, automatic gain control, sampling, quantization, fixed-point representation, frame-based processing.
 
@@ -32,8 +32,8 @@ This repository contains the reusable implementation and verification codebase. 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/DamiProject/Automatic-Gain-Control-Analog-to-Digital-Converter.git
-cd Automatic-Gain-Control-Analog-to-Digital-Converter
+git clone https://github.com/DamiProject/DSP-Signal-Conditioning-ADC-Encoder.git
+cd DSP-Signal-Conditioning-ADC-Encoder
 ```
 
 ### 2. Run the Test Suite
@@ -51,7 +51,7 @@ The test suite verifies the individual ADC signal-chain modules as well as their
 The repository structure is:
 
 ```text
-Automatic-Gain-Control-Analog-to-Digital-Converter/
+DSP-Signal-Conditioning-ADC-Encoder/
 ├── Design/
 │   ├── SignalGenerator.m
 │   ├── ADCFilter.m
