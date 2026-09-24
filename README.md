@@ -1,25 +1,77 @@
-# Automatic-Gain-Control-Analog-to-Digital-Converter
-
+# DSP-Signal-Conditioning-ADC-Encoder
 
 **Status: Under Active Development**
 
+---
+
+## Author
+
+**Damilola Ibukun Awotunde**
+
+MEng, Communications & Signal Processing - Western University | [LinkedIn](https://www.linkedin.com/in/damilola-awotunde) 
+
+---
+
 ## Overview
 
-This repository houses a modular, object-oriented digital signal processing (DSP) block implemented in MATLAB. It acts as a complete hardware-equivalent frontend pipeline, integrating a signal generator, high-pass filter (HPF), anti-aliasing filter (AAF), time-varying automatic gain control (AGC), noise gate, analog-to-digital converter (ADC), and ADC encoder. It explores two main areas:
+This repository houses a modular, object-oriented digital signal processing (DSP) block implemented in MATLAB. It acts as a DSP model of a frontend pipeline, integrating a signal generator, high-pass filter (HPF), anti-aliasing filter (AAF), time-varying automatic gain control (AGC), noise gate, analog-to-digital converter (ADC), and ADC encoder. It explores two main areas:
 
 **1. Digital Signal Processing (DSP) Paradigms:** Sinusoidal signal generation, multi-stage filtering, automatic gain control, sampling, quantization, fixed-point representation, frame-based processing.
 
 **2. Software Engineering Paradigms:** Object-oriented programming (OOP), unit testing, integration testing, code reusability, and modularity.
 
-### Prerequisites & Dependencies
+## How to Run
 
-This block requires MATLAB and the standard toolboxes used for digital signal processing and filter design:
+This repository contains the reusable implementation and verification codebase. The primary standalone execution path is the automated test suite.
 
-* **MATLAB** (Recommended: R2023a or newer)
-  
-* **Signal Processing Toolbox** (Required for Butterworth filter coefficient generation using `butter` and `sos2tf`)
+### Requirements
+
+- MATLAB
+- Signal Processing Toolbox
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/DamiProject/DSP-Signal-Conditioning-ADC-Encoder.git
+cd DSP-Signal-Conditioning-ADC-Encoder
+```
+
+### 2. Run the Test Suite
+
+Open MATLAB and navigate to the repository root, then run:
+
+```matlab
+ADCRunTests
+```
+
+`ADCRunTests.m` automatically adds the `Design` directory and its subdirectories to the MATLAB path, then executes all unit and integration tests contained in the `Tests` directory.
+
+The test suite verifies the individual ADC signal-chain modules as well as their interaction across the processing chain.
+
+The repository structure is:
+
+```text
+DSP-Signal-Conditioning-ADC-Encoder/
+├── Design/
+│   ├── SignalGenerator.m
+│   ├── ADCFilter.m
+│   ├── AGC.m
+│   ├── ADC.m
+│   ├── ADCEncoder.m
+│   ├── ADCParameters.m
+│   └── ADCMeta.m
+│
+├── Tests/
+│   ├── Unit Tests/
+│   └── Integration Tests/
+│
+└── ADCRunTests.m
+```
+
+A successful run completes all tests without an assertion failure.
 
 ---
+
 ## Module Implementations
 
  **1. Signal Generator Object:** This module generates an instance of the analog input signal to be digitized, consisting of a sinusoidal baseband signal (core data), high-frequency interference signal, DC offset, and AWGN noise floor.
@@ -79,10 +131,3 @@ This block requires MATLAB and the standard toolboxes used for digital signal pr
 
 **- Downstream Formatting:** The encoder outputs an input format structure that defines the Word Length (WL), Integer Word Length (IWL), and Fractional Word Length (FWL = 0), passing crucial fixed-point metadata to the next stage of processing.
 
----
-
-## Author
-
-**Damilola Ibukun Awotunde**
-
-MEng, Communications & Signal Processing - Western University | [LinkedIn](https://www.linkedin.com/in/damilola-awotunde) 
