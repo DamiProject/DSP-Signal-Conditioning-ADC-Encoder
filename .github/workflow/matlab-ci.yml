@@ -1,0 +1,58 @@
+name: ADC MATLAB CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  adc_test:
+    name: ADC Verification
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ============================================================
+      # CHECKOUT ADC REPOSITORY
+      # ============================================================
+
+      - name: Checkout ADC Repository
+        uses: actions/checkout@v6
+
+      # ============================================================
+      # MATLAB ENVIRONMENT
+      # ============================================================
+
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v3
+        with:
+          products: Signal_Processing_Toolbox
+          cache: true
+
+      # ============================================================
+      # ADC VERIFICATION
+      # ============================================================
+
+      - name: Run ADC Tests
+        uses: matlab-actions/run-command@v3
+        with:
+          command: ADCRunTests
+
+      # ============================================================
+      # TEST EVIDENCE
+      # ============================================================
+
+      - name: Upload ADC Test Reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: adc-test-reports
+          path: test-results/
+          if-no-files-found: warn
+          retention-days: 30
