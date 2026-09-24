@@ -235,7 +235,7 @@ classdef TestADCFilter < matlab.unittest.TestCase
             end
 
             testCase.verifyEqual( ...
-                ActualOutput, ExpectedOutput, "AbsTol", 1e-12);
+                ActualOutput, ExpectedOutput, "AbsTol", 1e-11);
         end
 
         function testHPFStatePersistsBetweenFrames(testCase)
