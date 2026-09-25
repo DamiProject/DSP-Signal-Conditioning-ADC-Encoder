@@ -1,4 +1,4 @@
-name: ADC MATLAB CI
+name: Signal Conditioning & ADC Unit Tests
 
 on:
   push:
