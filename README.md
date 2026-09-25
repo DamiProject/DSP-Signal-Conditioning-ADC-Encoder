@@ -1,5 +1,7 @@
 # DSP-Signal-Conditioning-ADC-Encoder
 
+[![Signal Conditioning & ADC Unit Tests](https://github.com/DamiProject/DSP-Signal-Conditioning-ADC-Encoder/actions/workflows/matlab-ci.yml/badge.svg?branch=main)](https://github.com/DamiProject/DSP-Signal-Conditioning-ADC-Encoder/actions/workflows/matlab-ci.yml)
+
 **Status: Under Active Development**
 
 ---
